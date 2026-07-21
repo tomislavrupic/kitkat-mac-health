@@ -986,9 +986,65 @@ footer {
   box-shadow: 0 0 0 90px rgba(95, 217, 237, 0.018), 0 0 0 180px rgba(95, 217, 237, 0.012);
 }
 
-.download-section > *:not(.download-glow) {
+.download-section > *:not(.download-glow):not(.kitkat-cameo) {
   position: relative;
   z-index: 2;
+}
+
+.kitkat-cameo {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 1;
+  width: min(48vw, 760px);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.32) 24%, black 58%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.32) 24%, black 58%);
+}
+
+.kitkat-cameo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0 78%, rgba(95, 217, 237, 0.12) 78% 78.15%, transparent 78.15%),
+    repeating-linear-gradient(0deg, transparent 0 7px, rgba(95, 217, 237, 0.025) 7px 8px);
+}
+
+.kitkat-cameo__portrait {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.kitkat-cameo__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 38% 18%;
+  opacity: 0.34;
+  filter: saturate(0.76) contrast(1.16);
+  mix-blend-mode: screen;
+  transform: scale(1.54);
+  transform-origin: 38% 18%;
+}
+
+.kitkat-cameo__tag {
+  position: absolute;
+  right: 30px;
+  bottom: 28px;
+  display: grid;
+  gap: 5px;
+  padding: 10px 12px;
+  border-block: 1px solid rgba(229, 101, 66, 0.34);
+  color: rgba(237, 245, 245, 0.54);
+  font-family: var(--font-technical);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+
+.kitkat-cameo__tag span {
+  color: rgba(229, 101, 66, 0.76);
 }
 
 .download-section > img {
@@ -1279,6 +1335,26 @@ footer p:last-child {
   .download-glow {
     width: 430px;
     height: 430px;
+  }
+
+  .kitkat-cameo {
+    width: 100%;
+    opacity: 0.5;
+    -webkit-mask-image: radial-gradient(circle at 72% 58%, black 0%, rgba(0, 0, 0, 0.22) 42%, transparent 72%);
+    mask-image: radial-gradient(circle at 72% 58%, black 0%, rgba(0, 0, 0, 0.22) 42%, transparent 72%);
+  }
+
+  .kitkat-cameo__portrait img {
+    object-position: 40% 20%;
+    opacity: 0.22;
+    transform: scale(1.25);
+    transform-origin: 40% 20%;
+  }
+
+  .kitkat-cameo__tag {
+    right: 18px;
+    bottom: 16px;
+    opacity: 0.72;
   }
 
   footer {

@@ -273,6 +273,15 @@ export default function Home() {
 
       <section className="download-section">
         <div className="download-glow" aria-hidden="true" />
+        <div className="kitkat-cameo" aria-hidden="true">
+          <div className="kitkat-cameo__portrait">
+            <img src={assetPath("/media/kitkat-character.jpg")} alt="" />
+          </div>
+          <div className="kitkat-cameo__tag">
+            <span>CREW DOSSIER / LGG-KK7</span>
+            <strong>BACKGROUND OPERATOR / ACTIVE</strong>
+          </div>
+        </div>
         <img src={assetPath("/media/kitkat-icon.png")} alt="" />
         <span>KITKAT MAC HEALTH / 0.1.0</span>
         <h2>THE QUIETEST<br />MEMBER OF YOUR CREW.</h2>

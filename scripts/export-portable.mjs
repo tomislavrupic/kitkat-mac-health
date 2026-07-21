@@ -64,6 +64,10 @@ copyFileSync(
   join(outputRoot, "styles.css"),
 );
 copyFileSync(join(buildRoot, "media", "kitkat-icon.png"), join(outputRoot, "media", "kitkat-icon.png"));
+copyFileSync(
+  join(buildRoot, "media", "kitkat-character.jpg"),
+  join(outputRoot, "media", "kitkat-character.jpg"),
+);
 copyFileSync(join(buildRoot, "og.png"), join(outputRoot, "og.png"));
 copyFileSync(
   join(buildRoot, "downloads", "KITKAT-Mac-Health-0.1.0.dmg"),
@@ -89,7 +93,7 @@ To use it:
 Files:
 - index.html: complete page markup
 - styles.css: complete PIX-7 visual system and animations
-- media/: KITKAT app icon
+- media/: KITKAT app icon and character portrait
 - downloads/: DMG installer and SHA-256 checksum
 - og.png: social sharing image
 
