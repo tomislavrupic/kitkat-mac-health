@@ -1,7 +1,8 @@
 # KITKAT Mac Health Landing Page
 
-A responsive PIX-7 product page for KITKAT Mac Health. The current app icon,
-versioned DMG, checksum, and social-preview image are included under `public/`.
+A responsive PIX-7 product page for KITKAT Mac Health. The current app icon and
+social-preview image are included under `public/`; versioned installers and
+checksums are published as GitHub Release assets.
 
 ## Run locally
 
@@ -41,8 +42,10 @@ are relative, so the complete folder can be moved into another website project.
 
 - The page structure is in `app/page.tsx`.
 - The complete visual system is in `app/globals.css`.
-- Product and download files are under `public/`.
-- Keep the `/downloads/KITKAT-Mac-Health-0.1.0.dmg` path or update both download
-  links when publishing a newer app version.
+- Product media is under `public/`.
+- Release download URLs and the displayed version are defined together at the
+  top of `app/page.tsx`.
+- Portable export assets are read from `../dist/release/` and copied into the
+  standalone folder so the handoff remains self-contained.
 
 The page uses no database, authentication, analytics, or remote runtime data.

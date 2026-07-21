@@ -5,6 +5,9 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const buildRoot = join(projectRoot, "out");
 const outputRoot = resolve(projectRoot, "..", "KITKAT-Landing-Page-Portable");
+const version = "0.3.0";
+const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
+const releaseAssets = resolve(projectRoot, "..", "dist", "release");
 
 const sourceHTML = readFileSync(join(buildRoot, "index.html"), "utf8");
 const headMatch = sourceHTML.match(/<head>([\s\S]*?)<\/head>/);
@@ -19,7 +22,7 @@ const cleanFragment = (fragment) =>
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
     .replace(/<link\b(?=[^>]*\bas=["']script["'])[^>]*\/?>(?:<\/link>)?/gi, "")
     .replace(/<!--\$-->|<!--\/\$-->/g, "")
-    .replace(/\/kitkat-mac-health\//g, "./");
+    .replace(/=(["'])\/kitkat-mac-health\//g, "=$1./");
 
 const head = cleanFragment(headMatch[1])
   .replace(
@@ -35,10 +38,16 @@ const head = cleanFragment(headMatch[1])
     '<meta $1 content="./og.png"/>',
   );
 
-const body = cleanFragment(bodyMatch[1]).replace(
-  /<div hidden="">\s*<\/div>/,
-  "",
-);
+const body = cleanFragment(bodyMatch[1])
+  .replace(/<div hidden="">\s*<\/div>/, "")
+  .replaceAll(
+    `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`,
+    `./downloads/KITKAT-Mac-Health-${version}.dmg.sha256`,
+  )
+  .replaceAll(
+    `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`,
+    `./downloads/KITKAT-Mac-Health-${version}.dmg`,
+  );
 
 const portableHTML = `<!DOCTYPE html>
 <html lang="en">
@@ -70,12 +79,12 @@ copyFileSync(
 );
 copyFileSync(join(buildRoot, "og.png"), join(outputRoot, "og.png"));
 copyFileSync(
-  join(buildRoot, "downloads", "KITKAT-Mac-Health-0.1.0.dmg"),
-  join(outputRoot, "downloads", "KITKAT-Mac-Health-0.1.0.dmg"),
+  join(releaseAssets, `KITKAT-Mac-Health-${version}.dmg`),
+  join(outputRoot, "downloads", `KITKAT-Mac-Health-${version}.dmg`),
 );
 copyFileSync(
-  join(buildRoot, "downloads", "KITKAT-Mac-Health-0.1.0.dmg.sha256"),
-  join(outputRoot, "downloads", "KITKAT-Mac-Health-0.1.0.dmg.sha256"),
+  join(releaseAssets, `KITKAT-Mac-Health-${version}.dmg.sha256`),
+  join(outputRoot, "downloads", `KITKAT-Mac-Health-${version}.dmg.sha256`),
 );
 
 writeFileSync(join(outputRoot, ".nojekyll"), "");

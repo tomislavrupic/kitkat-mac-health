@@ -33,24 +33,24 @@ test("server-renders the finished KITKAT product page", async () => {
   assert.match(html, />CLEAN</i);
   assert.match(html, />WITHOUT</i);
   assert.match(html, />REGRET\.</i);
-  assert.match(html, /KITKAT-Mac-Health-0\.1\.0\.dmg/);
+  assert.match(html, /releases\/download\/v0\.3\.0\/KITKAT-Mac-Health-0\.3\.0\.dmg/);
+  assert.match(html, /GPU \/ ACTIVE/);
+  assert.match(html, /THERMAL/);
+  assert.match(html, /20 \/ 20/);
   assert.match(html, /kitkat-character\.jpg/);
   assert.match(html, /CREW DOSSIER \/ LGG-KK7/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });
 
-test("ships the real download, checksum, icon, and social card", async () => {
+test("ships the release links, icon, character, and social card", async () => {
   const root = new URL("../public/", import.meta.url);
-  const dmg = new URL("downloads/KITKAT-Mac-Health-0.1.0.dmg", root);
-  const checksum = new URL("downloads/KITKAT-Mac-Health-0.1.0.dmg.sha256", root);
   const icon = new URL("media/kitkat-icon.png", root);
   const character = new URL("media/kitkat-character.jpg", root);
   const social = new URL("og.png", root);
 
-  await Promise.all([access(dmg), access(checksum), access(icon), access(character), access(social)]);
-  const dmgStats = await stat(dmg);
-  assert.ok(dmgStats.size > 2_000_000);
+  await Promise.all([access(icon), access(character), access(social)]);
+  assert.ok((await stat(icon)).size > 10_000);
 
   const packageJson = await readFile(new URL("../package.json", import.meta.url), "utf8");
   assert.match(packageJson, /kitkat-mac-health-landing/);

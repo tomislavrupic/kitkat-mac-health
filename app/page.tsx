@@ -11,11 +11,15 @@ const creativeApps = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetPath = (path: string) => `${basePath}${path}`;
+const version = "0.3.0";
+const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
+const downloadURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`;
+const checksumURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`;
 
 const healthRows = [
-  { label: "CPU / SYSTEM", value: "1.4%", state: "NOMINAL", width: "18%" },
-  { label: "MEMORY", value: "49%", state: "STABLE", width: "49%" },
-  { label: "SYSTEM DISK", value: "74%", state: "WATCH", width: "74%" },
+  { label: "GPU / ACTIVE", value: "100%", state: "AI WORK", width: "100%" },
+  { label: "MEMORY", value: "60 / 96 GB", state: "NORMAL", width: "63%" },
+  { label: "THERMAL", value: "STANDARD", state: "QUIET", width: "50%" },
 ];
 
 function MiniSignal({ color = "cyan" }: { color?: "cyan" | "green" | "amber" }) {
@@ -50,7 +54,7 @@ export default function Home() {
           <a href="#safety">SAFETY</a>
         </nav>
 
-        <a className="header-download" href={assetPath("/downloads/KITKAT-Mac-Health-0.1.0.dmg")} download>
+        <a className="header-download" href={downloadURL}>
           DOWNLOAD <span>↓</span>
         </a>
       </header>
@@ -58,7 +62,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <div className="eyebrow reveal reveal-1">
-            <span className="status-dot" /> NATIVE MACOS SYSTEM UTILITY / V0.1.0
+            <span className="status-dot" /> NATIVE MACOS SYSTEM UTILITY / V{version}
           </div>
           <h1 className="reveal reveal-2">
             YOUR MAC.
@@ -70,9 +74,9 @@ export default function Home() {
             and keeps its paws away from anything that matters.
           </p>
           <div className="hero-actions reveal reveal-4">
-            <a className="button button--primary" href={assetPath("/downloads/KITKAT-Mac-Health-0.1.0.dmg")} download>
+            <a className="button button--primary" href={downloadURL}>
               <span>DOWNLOAD FOR MAC</span>
-              <b>2.4 MB</b>
+              <b>V{version}</b>
             </a>
             <a className="button button--ghost" href="#system">
               INSPECT THE SYSTEM
@@ -168,19 +172,19 @@ export default function Home() {
                 <span>#</span><span>PROCESS</span><span>CORE</span><span>SYSTEM</span><span>STATE</span>
               </div>
               <div className="process-row process-row--active">
-                <span>01</span><span>WindowServer <small>DISPLAY COMPOSITOR</small></span><b>44.1%</b><strong>1.4%</strong><em>NOMINAL</em>
+                <span>01</span><span>ALI LTX Worker <small>LOCAL AI WORKER</small></span><b>23.6%</b><strong>0.7%</strong><em>AI ACTIVE</em>
               </div>
               <div className="process-row">
-                <span>02</span><span>ChatGPT</span><b>2.4%</b><strong>0.1%</strong><em>STABLE</em>
+                <span>02</span><span>WindowServer <small>DISPLAY COMPOSITOR</small></span><b>43.1%</b><strong>1.3%</strong><em>NOMINAL</em>
               </div>
               <div className="process-row">
-                <span>03</span><span>Brave Browser</span><b>1.7%</b><strong>0.1%</strong><em>STABLE</em>
+                <span>03</span><span>ChatGPT</span><b>2.7%</b><strong>0.1%</strong><em>STABLE</em>
               </div>
             </div>
             <div className="diag-cards">
-              <div><span>MEMORY</span><strong>47 / 96 GB</strong><small>NO SWAP</small></div>
-              <div><span>FIREWALL</span><strong>ENABLED</strong><small>PROTECTED</small></div>
-              <div><span>SPOTLIGHT</span><strong>INDEXING</strong><small>NOMINAL</small></div>
+              <div><span>MEMORY</span><strong>60 / 96 GB</strong><small>NORMAL PRESSURE</small></div>
+              <div><span>THERMAL</span><strong>STANDARD</strong><small>QUIET MONITOR</small></div>
+              <div><span>GPU SAMPLE</span><strong>100%</strong><small>ON DEMAND</small></div>
             </div>
           </div>
         </div>
@@ -260,10 +264,10 @@ export default function Home() {
       <section className="quiet-section">
         <div className="quiet-label">BACKGROUND MODE / MEASURED</div>
         <div className="quiet-metrics">
-          <div><strong>0.0%</strong><span>OBSERVED IDLE CPU</span></div>
-          <div><strong>~71 MB</strong><span>OBSERVED MEMORY</span></div>
+          <div><strong>~0.03%</strong><span>SYSTEM-WIDE IDLE CPU</span></div>
+          <div><strong>~116 MB</strong><span>SETTLED MEMORY</span></div>
           <div><strong>30 SEC</strong><span>ECO SAMPLE RATE</span></div>
-          <div><strong>13 / 13</strong><span>TESTS PASSING</span></div>
+          <div><strong>20 / 20</strong><span>TESTS PASSING</span></div>
         </div>
         <p>
           Detailed process inspection wakes only when you open the console. Sleep suspends monitoring.
@@ -283,14 +287,14 @@ export default function Home() {
           </div>
         </div>
         <img src={assetPath("/media/kitkat-icon.png")} alt="" />
-        <span>KITKAT MAC HEALTH / 0.1.0</span>
+        <span>KITKAT MAC HEALTH / {version}</span>
         <h2>THE QUIETEST<br />MEMBER OF YOUR CREW.</h2>
         <p>Native. Local. Reversible. Slightly suspicious of unnecessary cache files.</p>
-        <a className="button button--primary button--large" href={assetPath("/downloads/KITKAT-Mac-Health-0.1.0.dmg")} download>
+        <a className="button button--primary button--large" href={downloadURL}>
           <span>DOWNLOAD FOR MAC</span>
           <b>↓</b>
         </a>
-        <a className="checksum-link" href={assetPath("/downloads/KITKAT-Mac-Health-0.1.0.dmg.sha256")} download>
+        <a className="checksum-link" href={checksumURL}>
           SHA-256 CHECKSUM
         </a>
       </section>
