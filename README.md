@@ -25,6 +25,18 @@ site whenever `main` is updated. The public URL is:
 
 In the repository settings, Pages must use **GitHub Actions** as its source.
 
+## Portable folder
+
+After building the Pages version, generate a dependency-free handoff folder:
+
+```sh
+npm run export:portable
+```
+
+The output is written beside this repository as `KITKAT-Landing-Page-Portable`.
+It contains only static HTML, CSS, artwork, the DMG, and its checksum. All paths
+are relative, so the complete folder can be moved into another website project.
+
 ## Add to another site
 
 - The page structure is in `app/page.tsx`.
