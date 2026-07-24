@@ -11,7 +11,7 @@ const creativeApps = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetPath = (path: string) => `${basePath}${path}`;
-const version = "0.3.0";
+const version = "0.4.0";
 const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
 const downloadURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`;
 const checksumURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`;
@@ -50,6 +50,7 @@ export default function Home() {
 
         <nav aria-label="Primary navigation">
           <a href="#system">SYSTEM</a>
+          <a href="#capture">CAPTURE</a>
           <a href="#cleanup">CLEANUP</a>
           <a href="#safety">SAFETY</a>
         </nav>
@@ -70,8 +71,8 @@ export default function Home() {
             <span>UNDER CONTROL.</span>
           </h1>
           <p className="hero-lede reveal reveal-3">
-            KITKAT watches the technical chaos, cleans what creative software leaves behind,
-            and keeps its paws away from anything that matters.
+            KITKAT watches the technical chaos, records desktop sessions with system audio,
+            cleans what creative software leaves behind, and keeps its paws away from anything that matters.
           </p>
           <div className="hero-actions reveal reveal-4">
             <a className="button button--primary" href={downloadURL}>
@@ -134,7 +135,7 @@ export default function Home() {
       <div className="signal-rail" aria-hidden="true">
         <span>01 / OBSERVE</span>
         <i />
-        <span>02 / DIAGNOSE</span>
+        <span>02 / CAPTURE</span>
         <i />
         <span>03 / CLEAN SAFELY</span>
         <i />
@@ -190,9 +191,91 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section capture-section" id="capture">
+        <div className="section-heading">
+          <span className="section-index">02</span>
+          <div>
+            <p>NATIVE SCREEN CAPTURE / SYSTEM AUDIO</p>
+            <h2>RECORD THE WORK.<br />KEEP THE SOUND.</h2>
+          </div>
+          <p className="section-note">
+            One small control captures your main display, cursor, and stereo system audio.
+            KITKAT hides itself from the recording and files everything in one predictable folder.
+          </p>
+        </div>
+
+        <div className="capture-console">
+          <div className="capture-screen">
+            <div className="capture-topline">
+              <span>KITKAT / QUICK CAPTURE</span>
+              <span className="capture-armed"><i /> SYSTEM AUDIO ARMED</span>
+            </div>
+            <div className="capture-stage">
+              <div className="capture-reticle capture-reticle--a" />
+              <div className="capture-reticle capture-reticle--b" />
+              <div className="capture-window">
+                <div className="capture-window__bar">
+                  <i /><i /><i />
+                  <span>MAIN DISPLAY / 3008 × 1692</span>
+                </div>
+                <div className="capture-wave" aria-hidden="true">
+                  {Array.from({ length: 38 }, (_, index) => (
+                    <i
+                      key={index}
+                      style={{ height: `${18 + ((index * 17) % 68)}%` }}
+                    />
+                  ))}
+                </div>
+                <div className="capture-window__signal">
+                  <span>STEREO / 48 KHZ</span>
+                  <span>H.264 + AAC</span>
+                </div>
+              </div>
+            </div>
+            <div className="capture-controls">
+              <div className="record-control">
+                <span className="record-stop" />
+                <strong>00:42</strong>
+                <small>RECORDING</small>
+              </div>
+              <div className="record-route">
+                <span className="folder-glyph" aria-hidden="true"><i /></span>
+                <span>
+                  <small>SAVING TO</small>
+                  <strong>MOVIES / KITKAT RECORDINGS</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="capture-specs">
+            <div>
+              <span>VIDEO</span>
+              <strong>UP TO 4K / 30 FPS</strong>
+              <small>MAIN DISPLAY + CURSOR</small>
+            </div>
+            <div>
+              <span>AUDIO</span>
+              <strong>SYSTEM / STEREO</strong>
+              <small>NATIVE 48 KHZ CAPTURE</small>
+            </div>
+            <div>
+              <span>OUTPUT</span>
+              <strong>ONE CLEAN MP4</strong>
+              <small>FOLDER OPENS IN ONE CLICK</small>
+            </div>
+            <div className="capture-specs__idle">
+              <span>IDLE</span>
+              <strong>RECORDER ASLEEP</strong>
+              <small>NO CAPTURE WORK UNTIL ASKED</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section cleanup-section" id="cleanup">
         <div className="section-heading section-heading--compact">
-          <span className="section-index">02</span>
+          <span className="section-index">03</span>
           <div>
             <p>CREATIVE SOFTWARE MAKES ART. AND DEBRIS.</p>
             <h2>CLEAN THE CACHE.<br />KEEP THE WORK.</h2>
@@ -233,7 +316,7 @@ export default function Home() {
 
       <section className="section safety-section" id="safety">
         <div className="safety-copy">
-          <span className="section-index">03</span>
+          <span className="section-index">04</span>
           <p>CONTROLLED CHAOS / HARD BOUNDARIES</p>
           <h2>CLEAN<br />WITHOUT<br /><span>REGRET.</span></h2>
         </div>
@@ -267,7 +350,7 @@ export default function Home() {
           <div><strong>~0.03%</strong><span>SYSTEM-WIDE IDLE CPU</span></div>
           <div><strong>~116 MB</strong><span>SETTLED MEMORY</span></div>
           <div><strong>30 SEC</strong><span>ECO SAMPLE RATE</span></div>
-          <div><strong>20 / 20</strong><span>TESTS PASSING</span></div>
+          <div><strong>24 / 24</strong><span>TESTS PASSING</span></div>
         </div>
         <p>
           Detailed process inspection wakes only when you open the console. Sleep suspends monitoring.

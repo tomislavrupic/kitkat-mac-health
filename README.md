@@ -1,8 +1,9 @@
 # KITKAT Mac Health Landing Page
 
-A responsive PIX-7 product page for KITKAT Mac Health. The current app icon and
-social-preview image are included under `public/`; versioned installers and
-checksums are published as GitHub Release assets.
+A responsive PIX-7 product page for KITKAT Mac Health 0.4.0, including the
+native screen-and-system-audio recorder. The current app icon and social-preview
+image are included under `public/`; versioned installers and checksums are
+published as GitHub Release assets.
 
 ## Run locally
 

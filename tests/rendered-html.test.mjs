@@ -33,10 +33,13 @@ test("server-renders the finished KITKAT product page", async () => {
   assert.match(html, />CLEAN</i);
   assert.match(html, />WITHOUT</i);
   assert.match(html, />REGRET\.</i);
-  assert.match(html, /releases\/download\/v0\.3\.0\/KITKAT-Mac-Health-0\.3\.0\.dmg/);
+  assert.match(html, /releases\/download\/v0\.4\.0\/KITKAT-Mac-Health-0\.4\.0\.dmg/);
   assert.match(html, /GPU \/ ACTIVE/);
   assert.match(html, /THERMAL/);
-  assert.match(html, /20 \/ 20/);
+  assert.match(html, /RECORD THE WORK\./);
+  assert.match(html, /SYSTEM AUDIO ARMED/);
+  assert.match(html, /MOVIES \/ KITKAT RECORDINGS/);
+  assert.match(html, /24 \/ 24/);
   assert.match(html, /kitkat-character\.jpg/);
   assert.match(html, /CREW DOSSIER \/ LGG-KK7/);
   assert.match(html, /og\.png/);
