@@ -11,7 +11,7 @@ const creativeApps = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetPath = (path: string) => `${basePath}${path}`;
-const version = "0.4.0";
+const version = "0.5.2";
 const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
 const downloadURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`;
 const checksumURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`;
@@ -72,7 +72,7 @@ export default function Home() {
           </h1>
           <p className="hero-lede reveal reveal-3">
             KITKAT watches the technical chaos, records desktop sessions with system audio,
-            cleans what creative software leaves behind, and keeps its paws away from anything that matters.
+            cleans what creative software leaves behind, and indexes selected local memory without touching the source.
           </p>
           <div className="hero-actions reveal reveal-4">
             <a className="button button--primary" href={downloadURL}>
