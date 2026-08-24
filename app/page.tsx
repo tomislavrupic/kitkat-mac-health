@@ -11,7 +11,7 @@ const creativeApps = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetPath = (path: string) => `${basePath}${path}`;
-const version = "0.5.2";
+const version = "0.6.0";
 const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
 const downloadURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`;
 const checksumURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`;
@@ -73,6 +73,7 @@ export default function Home() {
           <p className="hero-lede reveal reveal-3">
             KITKAT watches the technical chaos, records desktop sessions with system audio,
             cleans what creative software leaves behind, and indexes selected local memory without touching the source.
+            Optional encrypted sync keeps the same memory vault available across your Macs.
           </p>
           <div className="hero-actions reveal reveal-4">
             <a className="button button--primary" href={downloadURL}>
@@ -86,7 +87,8 @@ export default function Home() {
           <div className="hero-compat reveal reveal-4">
             <span>MACOS 15+</span>
             <span>APPLE SILICON</span>
-            <span>LOCAL ONLY</span>
+            <span>LOCAL FIRST</span>
+            <span>ENCRYPTED SYNC</span>
             <span>NO TELEMETRY</span>
           </div>
         </div>
@@ -350,7 +352,7 @@ export default function Home() {
           <div><strong>~0.03%</strong><span>SYSTEM-WIDE IDLE CPU</span></div>
           <div><strong>~116 MB</strong><span>SETTLED MEMORY</span></div>
           <div><strong>30 SEC</strong><span>ECO SAMPLE RATE</span></div>
-          <div><strong>24 / 24</strong><span>TESTS PASSING</span></div>
+          <div><strong>39 / 39</strong><span>TESTS PASSING</span></div>
         </div>
         <p>
           Detailed process inspection wakes only when you open the console. Sleep suspends monitoring.
