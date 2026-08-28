@@ -44,6 +44,11 @@ test("server-renders the finished KITKAT product page", async () => {
   assert.match(html, /MOVIES \/ KITKAT RECORDINGS/);
   assert.match(html, /77 \/ 77/);
   assert.match(html, /MAX 24 CANDIDATES/);
+  assert.match(html, /SERIOUS TOOLS\./);
+  assert.match(html, /DEEPLY UNSERIOUS CAT\./);
+  assert.match(html, /kitkat-core-surgery-v1\.jpg/);
+  assert.match(html, /kitkat-beachball-rave-v1\.jpg/);
+  assert.match(html, /kitkat-desktop-rodeo-v1\.jpg/);
   assert.match(html, /kitkat-character\.jpg/);
   assert.match(html, /CREW DOSSIER \/ LGG-KK7/);
   assert.match(html, /og\.png/);

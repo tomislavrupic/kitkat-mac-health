@@ -52,6 +52,7 @@ export default function Home() {
           <a href="#system">SYSTEM</a>
           <a href="#capture">CAPTURE</a>
           <a href="#memory">MEMORY</a>
+          <a href="#chaos">CHAOS</a>
           <a href="#cleanup">CLEANUP</a>
           <a href="#safety">SAFETY</a>
         </nav>
@@ -355,6 +356,70 @@ export default function Home() {
             </div>
             <div className="connection-foot"><span>MAX 24 CANDIDATES</span><span>SHA-256 PINNED</span><span>HUMAN APPROVAL</span></div>
           </div>
+        </div>
+      </section>
+
+      <section className="section chaos-section" id="chaos">
+        <div className="section-heading">
+          <span className="section-index">03B</span>
+          <div>
+            <p>FIELD NOTES / LGG-KK7</p>
+            <h2>SERIOUS TOOLS.<br />DEEPLY UNSERIOUS CAT.</h2>
+          </div>
+          <p className="section-note">
+            KITKAT is officially assigned to system health, memory, and capture.
+            What happens after the fans spin up is between KITKAT and the hardware.
+          </p>
+        </div>
+
+        <div className="chaos-grid">
+          <figure className="chaos-card chaos-card--hero">
+            <div className="chaos-card__image">
+              <img
+                src={assetPath("/media/kitkat-core-surgery-v1.jpg")}
+                alt="KITKAT performing microsurgery on a glowing processor while worried RAM modules wait"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>CASE 01 / CORE SURGERY</span>
+            </div>
+            <figcaption>
+              <div><small>DIAGNOSIS</small><strong>THE CPU SAID IT FELT FINE.</strong></div>
+              <p>KITKAT requested a second opinion.</p>
+            </figcaption>
+          </figure>
+
+          <figure className="chaos-card">
+            <div className="chaos-card__image">
+              <img
+                src={assetPath("/media/kitkat-beachball-rave-v1.jpg")}
+                alt="KITKAT DJing on two spinning rainbow beachballs for a crowd of storage devices"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>CASE 02 / BEACHBALL RAVE</span>
+            </div>
+            <figcaption>
+              <div><small>INCIDENT</small><strong>SPINNING IS A RHYTHM.</strong></div>
+              <p>The application was not frozen. It was waiting for the drop.</p>
+            </figcaption>
+          </figure>
+
+          <figure className="chaos-card">
+            <div className="chaos-card__image">
+              <img
+                src={assetPath("/media/kitkat-desktop-rodeo-v1.jpg")}
+                alt="KITKAT riding a giant rainbow beachball through space and lassoing runaway folders"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>CASE 03 / DESKTOP RODEO</span>
+            </div>
+            <figcaption>
+              <div><small>RECOVERY</small><strong>THE FOLDERS ESCAPED AGAIN.</strong></div>
+              <p>No files were harmed. Several were strongly advised.</p>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
