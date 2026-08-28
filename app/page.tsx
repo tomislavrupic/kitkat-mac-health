@@ -11,7 +11,7 @@ const creativeApps = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetPath = (path: string) => `${basePath}${path}`;
-const version = "0.6.0";
+const version = "0.6.1";
 const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
 const downloadURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`;
 const checksumURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`;
@@ -51,6 +51,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <a href="#system">SYSTEM</a>
           <a href="#capture">CAPTURE</a>
+          <a href="#memory">MEMORY</a>
           <a href="#cleanup">CLEANUP</a>
           <a href="#safety">SAFETY</a>
         </nav>
@@ -71,9 +72,9 @@ export default function Home() {
             <span>UNDER CONTROL.</span>
           </h1>
           <p className="hero-lede reveal reveal-3">
-            KITKAT watches the technical chaos, records desktop sessions with system audio,
-            cleans what creative software leaves behind, and indexes selected local memory without touching the source.
-            Optional encrypted sync keeps the same memory vault available across your Macs.
+            KITKAT watches CPU, RAM, storage, and Codex usage, records desktop sessions with system audio,
+            and keeps selected creative memory connected without touching source files. Sirius can propose
+            useful links across projects and drives; nothing becomes canonical until you approve it.
           </p>
           <div className="hero-actions reveal reveal-4">
             <a className="button button--primary" href={downloadURL}>
@@ -88,6 +89,7 @@ export default function Home() {
             <span>MACOS 15+</span>
             <span>APPLE SILICON</span>
             <span>LOCAL FIRST</span>
+            <span>REVIEWED AI</span>
             <span>ENCRYPTED SYNC</span>
             <span>NO TELEMETRY</span>
           </div>
@@ -139,9 +141,11 @@ export default function Home() {
         <i />
         <span>02 / CAPTURE</span>
         <i />
-        <span>03 / CLEAN SAFELY</span>
+        <span>03 / CONNECT</span>
         <i />
-        <span>04 / RESTORE</span>
+        <span>04 / CLEAN SAFELY</span>
+        <i />
+        <span>05 / RESTORE</span>
       </div>
 
       <section className="section system-section" id="system">
@@ -275,9 +279,88 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section memory-section" id="memory">
+        <div className="section-heading">
+          <span className="section-index">03</span>
+          <div>
+            <p>LOCAL CONTEXT / REVIEWED INTELLIGENCE</p>
+            <h2>SEE THE LOAD.<br />CONNECT THE WORK.</h2>
+          </div>
+          <p className="section-note">
+            Codex quota, CPU, RAM, and disk stay visible beside quick capture tools.
+            When you ask Sirius to find a connection, it receives a small, exact candidate set—not your whole vault.
+          </p>
+        </div>
+
+        <div className="memory-console">
+          <div className="memory-utility">
+            <div className="memory-topline">
+              <span>KITKAT / LIVE UTILITY STRIP</span>
+              <span className="nominal"><i /> LOCAL</span>
+            </div>
+            <div className="usage-grid">
+              <div className="usage-dial usage-dial--codex">
+                <i><b>73%</b></i><span>CODEX</span><small>SESSION WINDOW</small>
+              </div>
+              <div className="usage-dial usage-dial--cpu">
+                <i><b>24%</b></i><span>CPU</span><small>LIVE SYSTEM</small>
+              </div>
+              <div className="usage-dial usage-dial--ram">
+                <i><b>63%</b></i><span>RAM</span><small>NORMAL PRESSURE</small>
+              </div>
+              <div className="usage-dial usage-dial--disk">
+                <i><b>58%</b></i><span>DISK</span><small>LOCAL VOLUME</small>
+              </div>
+            </div>
+            <div className="utility-actions">
+              <div>
+                <span>⌘K</span>
+                <strong>QUICK CAPTURE</strong>
+                <small>TEXT / LINK / FILE / SCREENSHOT</small>
+              </div>
+              <div>
+                <span>⌘C</span>
+                <strong>CLIPBOARD HISTORY</strong>
+                <small>OPT-IN / SESSION ONLY / SECRET FILTERED</small>
+              </div>
+              <div>
+                <span>↗</span>
+                <strong>RECENT FOLDERS</strong>
+                <small>RETURN WITHOUT RE-SCANNING CONTENT</small>
+              </div>
+            </div>
+          </div>
+
+          <div className="connection-panel">
+            <div className="connection-head">
+              <div><span>SIRIUS / CONNECTION INBOX</span><strong>2 PROPOSALS</strong></div>
+              <small>NOTHING WRITES BEFORE REVIEW</small>
+            </div>
+            <div className="connection-map" aria-label="Bounded cross-project connection preview">
+              <div className="memory-node memory-node--seed"><small>SEED / PROJECT</small><strong>KITKAT MEMORY</strong><span>ACTIVE CONTEXT</span></div>
+              <div className="memory-link memory-link--a" aria-hidden="true" />
+              <div className="memory-node memory-node--drive"><small>DRIVE / MEDIA</small><strong>FESTIVAL PUTNIKA</strong><span>REFERENCE ONLY</span></div>
+              <div className="memory-link memory-link--b" aria-hidden="true" />
+              <div className="memory-node memory-node--project"><small>PROJECT / ENGINE</small><strong>SIRIUS</strong><span>SHARED METHOD</span></div>
+            </div>
+            <div className="proposal-list">
+              <div className="proposal-card">
+                <div><span>RELATED TO / 91%</span><strong>KITKAT MEMORY ↔ SIRIUS</strong><small>Shared reviewed-context contract</small></div>
+                <div><button type="button">ACCEPT</button><button type="button">REJECT</button></div>
+              </div>
+              <div className="proposal-card">
+                <div><span>INFORMED BY / 84%</span><strong>PROJECT ↔ MEDIA REFERENCE</strong><small>Metadata match; source remains untouched</small></div>
+                <div><button type="button">ACCEPT</button><button type="button">REJECT</button></div>
+              </div>
+            </div>
+            <div className="connection-foot"><span>MAX 24 CANDIDATES</span><span>SHA-256 PINNED</span><span>HUMAN APPROVAL</span></div>
+          </div>
+        </div>
+      </section>
+
       <section className="section cleanup-section" id="cleanup">
         <div className="section-heading section-heading--compact">
-          <span className="section-index">03</span>
+          <span className="section-index">04</span>
           <div>
             <p>CREATIVE SOFTWARE MAKES ART. AND DEBRIS.</p>
             <h2>CLEAN THE CACHE.<br />KEEP THE WORK.</h2>
@@ -318,7 +401,7 @@ export default function Home() {
 
       <section className="section safety-section" id="safety">
         <div className="safety-copy">
-          <span className="section-index">04</span>
+          <span className="section-index">05</span>
           <p>CONTROLLED CHAOS / HARD BOUNDARIES</p>
           <h2>CLEAN<br />WITHOUT<br /><span>REGRET.</span></h2>
         </div>
@@ -352,7 +435,7 @@ export default function Home() {
           <div><strong>~0.03%</strong><span>SYSTEM-WIDE IDLE CPU</span></div>
           <div><strong>~116 MB</strong><span>SETTLED MEMORY</span></div>
           <div><strong>30 SEC</strong><span>ECO SAMPLE RATE</span></div>
-          <div><strong>39 / 39</strong><span>TESTS PASSING</span></div>
+          <div><strong>77 / 77</strong><span>TESTS PASSING</span></div>
         </div>
         <p>
           Detailed process inspection wakes only when you open the console. Sleep suspends monitoring.

@@ -7,7 +7,7 @@ const baseURL = new URL(siteURL.endsWith("/") ? siteURL : `${siteURL}/`);
 const socialImageURL = new URL("og.png", baseURL).toString();
 const title = "KITKAT Mac Health — Your Mac. Under Control.";
 const description =
-  "A native macOS health monitor and reversible creative-cache cleaner built for Apple silicon.";
+  "A local-first macOS utility for live system and Codex usage, safe capture and cleanup, governed memory, and reviewed Sirius connections.";
 
 export const metadata: Metadata = {
   metadataBase: baseURL,

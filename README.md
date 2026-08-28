@@ -1,8 +1,9 @@
 # KITKAT Mac Health Landing Page
 
-A responsive PIX-7 product page for KITKAT Mac Health 0.6.0, including the
-native screen-and-system-audio recorder, read-only local memory workspaces, and
-optional encrypted local-first sync between Macs. The current app icon and social-preview
+A responsive PIX-7 product page for KITKAT Mac Health 0.6.1, including the
+native screen-and-system-audio recorder, live Codex/system usage, reviewed
+Sirius connection proposals, local memory workspaces, and optional encrypted
+local-first sync between Macs. The current app icon and social-preview
 image are included under `public/`; versioned installers and checksums are
 published as GitHub Release assets.
 
