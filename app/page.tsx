@@ -11,7 +11,7 @@ const creativeApps = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetPath = (path: string) => `${basePath}${path}`;
-const version = "0.6.1";
+const version = "0.6.2";
 const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
 const downloadURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`;
 const checksumURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`;
@@ -89,6 +89,7 @@ export default function Home() {
           <div className="hero-compat reveal reveal-4">
             <span>MACOS 15+</span>
             <span>APPLE SILICON</span>
+            <span>APPLE NOTARIZED</span>
             <span>LOCAL FIRST</span>
             <span>REVIEWED AI</span>
             <span>ENCRYPTED SYNC</span>

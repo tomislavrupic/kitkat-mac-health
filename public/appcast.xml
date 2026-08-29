@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>KITKAT Mac Health</title>
+        <item>
+            <title>0.6.2</title>
+            <pubDate>Sat, 29 Aug 2026 19:34:12 +0200</pubDate>
+            <link>https://tomislavrupic.github.io/kitkat-mac-health/</link>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>0.6.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# KITKAT 0.6.2
+
+- Developer ID signed and Apple notarized.
+- Compact in-app update indicator in the menu-bar panel.
+- Secure automatic update checks with signed Sparkle feeds and archives.
+
+Build 10 · macOS 15 or later · Apple silicon
+]]></description>
+            <enclosure url="https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v0.6.2/KITKAT-Mac-Health-0.6.2.dmg" length="6741925" type="application/octet-stream" sparkle:edSignature="biYaU6HDWt0ylGtC0zw6l7qrYBB6mMAmCNGScbiiBbtBqoNhWlO9UeBw9Y2YXyaP36Ck6LzRnYM3x3Rmktu3Bw=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: m74I2JnCtKLCZqfh5Hi2mTk51QudmZE618k3snxGh8Yh0t4Qsbr4eNKR9d7vQMTrpE5ICGO4Sx4oVd4NsbR7Bg==
+length: 1544
+-->

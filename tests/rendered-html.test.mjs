@@ -33,7 +33,7 @@ test("server-renders the finished KITKAT product page", async () => {
   assert.match(html, />CLEAN</i);
   assert.match(html, />WITHOUT</i);
   assert.match(html, />REGRET\.</i);
-  assert.match(html, /releases\/download\/v0\.6\.1\/KITKAT-Mac-Health-0\.6\.1\.dmg/);
+  assert.match(html, /releases\/download\/v0\.6\.2\/KITKAT-Mac-Health-0\.6\.2\.dmg/);
   assert.match(html, /Codex usage/i);
   assert.match(html, /Sirius/i);
   assert.match(html, /encrypted sync/i);
