@@ -290,7 +290,9 @@ export default function Home() {
           </div>
           <p className="section-note">
             Codex quota, CPU, RAM, and disk stay visible beside quick capture tools.
-            When you ask Sirius to find a connection, it receives a small, exact candidate set—not your whole vault.
+            Drop a PDF, Office file, EPUB, ZIP, or text document and KITKAT derives a
+            fingerprinted Markdown view locally; the original stays untouched. When
+            you ask Sirius to find a connection, it receives a small, exact candidate set—not your whole vault.
           </p>
         </div>
 
@@ -318,7 +320,7 @@ export default function Home() {
               <div>
                 <span>⌘K</span>
                 <strong>QUICK CAPTURE</strong>
-                <small>TEXT / LINK / FILE / SCREENSHOT</small>
+                <small>TEXT / LINK / FILE / OFFICE DOC / SCREENSHOT</small>
               </div>
               <div>
                 <span>⌘C</span>
