@@ -17,7 +17,10 @@ The rendered-page tests and GitHub Pages static-export build passed locally.
 The public page no longer presents earlier-version CPU, memory or test-count
 measurements as current release benchmarks.
 
-The unchanged website dependency lockfile reports 32 npm audit advisories,
-including a critical Next.js advisory. GitHub Pages deploys the static export,
-not the Node server or development tools. Dependency remediation remains a
-separate follow-up; this release does not claim those advisories are resolved.
+At initial publication, the website dependency lockfile reported 32 npm audit
+advisories, including a critical Next.js advisory. The website was subsequently
+updated on 2026-10-15: the approved Next.js-only toolchain reports zero known npm
+vulnerabilities, with a deployment audit gate and static-export regression
+checks. Native release assets and the signed feed were not changed. See
+[dependency security notes](https://github.com/tomislavrupic/kitkat-mac-health/blob/main/SECURITY-DEPENDENCIES.md)
+for verification and the remaining development-only lint compatibility caveat.

@@ -1,6 +1,6 @@
 # KITKAT Mac Health Landing Page
 
-A responsive PIX-7 product page for KITKAT Mac Health 0.6.2, including the
+A responsive PIX-7 product page for KITKAT Mac Health 0.7.0, including the
 native screen-and-system-audio recorder, live Codex/system usage, reviewed
 Sirius connection proposals, local memory workspaces, and optional encrypted
 local-first sync between Macs. The current app icon and social-preview
@@ -10,7 +10,7 @@ published as GitHub Release assets.
 ## Run locally
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
@@ -18,12 +18,13 @@ npm run dev
 
 ```sh
 npm test
+npm run audit:security
 ```
 
 ## GitHub Pages
 
-The repository includes an Actions workflow that builds and deploys the static
-site whenever `main` is updated. The public URL is:
+The repository includes an Actions workflow that audits dependencies, tests the
+static export and deploys it whenever `main` is updated. The public URL is:
 
 <https://tomislavrupic.github.io/kitkat-mac-health/>
 
@@ -34,6 +35,7 @@ In the repository settings, Pages must use **GitHub Actions** as its source.
 After building the Pages version, generate a dependency-free handoff folder:
 
 ```sh
+npm run build:pages
 npm run export:portable
 ```
 
@@ -52,3 +54,8 @@ are relative, so the complete folder can be moved into another website project.
   standalone folder so the handoff remains self-contained.
 
 The page uses no database, authentication, analytics, or remote runtime data.
+Development and production now both use Next.js. The retired Cloudflare/Vinext
+and database starter files remain in `examples/legacy-cloudflare/` as inactive
+references, with no runtime dependencies installed for them. See
+[dependency security notes](SECURITY-DEPENDENCIES.md) for the audit and tooling
+compatibility boundary.

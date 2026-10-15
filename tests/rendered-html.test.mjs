@@ -2,31 +2,8 @@ import assert from "node:assert/strict";
 import { access, readFile, stat } from "node:fs/promises";
 import test from "node:test";
 
-async function render(path = "/") {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
-  return worker.fetch(
-    new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
-}
-
-test("server-renders the finished KITKAT product page", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
-  const html = await response.text();
+test("statically exports the finished KITKAT product page", async () => {
+  const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
   assert.match(html, /<title>KITKAT Mac Health — Your Mac\. Under Control\.<\/title>/i);
   assert.match(html, /YOUR MAC\./);
   assert.match(html, /UNDER CONTROL\./);
@@ -58,7 +35,7 @@ test("server-renders the finished KITKAT product page", async () => {
 });
 
 test("ships the release links, icon, character, and social card", async () => {
-  const root = new URL("../public/", import.meta.url);
+  const root = new URL("../out/", import.meta.url);
   const icon = new URL("media/kitkat-icon.png", root);
   const character = new URL("media/kitkat-character.jpg", root);
   const social = new URL("og.png", root);
@@ -69,4 +46,31 @@ test("ships the release links, icon, character, and social card", async () => {
   const packageJson = await readFile(new URL("../package.json", import.meta.url), "utf8");
   assert.match(packageJson, /kitkat-mac-health-landing/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
+});
+
+test("exports every local stylesheet, image and section linked by the page", async () => {
+  const root = new URL("../out/", import.meta.url);
+  const html = await readFile(new URL("index.html", root), "utf8");
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/kitkat-mac-health";
+  const urls = [...html.matchAll(/(?:src|href)="([^"]+)"/g)].map((match) => match[1]);
+  const localAssets = urls.filter((url) => url.startsWith("/") && !url.startsWith("//"));
+  for (const url of localAssets) {
+    assert.ok(url.startsWith(`${basePath}/`), `local asset preserves the deployment prefix: ${url}`);
+  }
+  assert.ok(localAssets.some((url) => url.endsWith(".css")), "export includes a stylesheet");
+  assert.ok(localAssets.some((url) => url.endsWith(".jpg")), "export includes character images");
+  for (const url of localAssets) {
+    await access(new URL(url.slice(basePath.length + 1).split("?")[0], root));
+  }
+  for (const url of urls.filter((url) => url.startsWith("#"))) {
+    assert.ok(html.includes(`id="${url.slice(1)}"`), `section target exists: ${url}`);
+  }
+});
+
+test("preserves the signed updater feed byte-for-byte in the static export", async () => {
+  const source = await readFile(new URL("../public/appcast.xml", import.meta.url));
+  const exported = await readFile(new URL("../out/appcast.xml", import.meta.url));
+  assert.deepEqual(exported, source);
+  assert.match(source.toString(), /<sparkle:shortVersionString>0\.7\.0<\/sparkle:shortVersionString>/);
+  assert.match(source.toString(), /sparkle-signatures:/);
 });

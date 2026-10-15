@@ -1,3 +1,4 @@
+// Inactive starter reference; dependencies are not installed by this landing page.
 import vinext from "vinext";
 import { defineConfig } from "vite";
 import hostingConfig from "./.openai/hosting.json";

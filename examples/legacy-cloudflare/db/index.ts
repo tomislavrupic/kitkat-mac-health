@@ -1,3 +1,4 @@
+// Inactive starter reference; no database is used by the landing page.
 import { env } from "cloudflare:workers";
 import { drizzle } from "drizzle-orm/d1";
 import * as schema from "./schema";
