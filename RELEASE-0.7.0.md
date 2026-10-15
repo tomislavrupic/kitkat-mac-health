@@ -23,4 +23,6 @@ updated on 2026-10-15: the approved Next.js-only toolchain reports zero known np
 vulnerabilities, with a deployment audit gate and static-export regression
 checks. Native release assets and the signed feed were not changed. See
 [dependency security notes](https://github.com/tomislavrupic/kitkat-mac-health/blob/main/SECURITY-DEPENDENCIES.md)
-for verification and the remaining development-only lint compatibility caveat.
+for verification. The development-only ESLint compatibility caveat was also
+resolved on 2026-10-15 by replacing that stack with maintained Biome and adding
+real lint-rule regression fixtures; native release assets remain unchanged.

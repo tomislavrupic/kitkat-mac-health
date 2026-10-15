@@ -74,3 +74,18 @@ test("preserves the signed updater feed byte-for-byte in the static export", asy
   assert.match(source.toString(), /<sparkle:shortVersionString>0\.7\.0<\/sparkle:shortVersionString>/);
   assert.match(source.toString(), /sparkle-signatures:/);
 });
+
+test("exports named semantic preview regions", async () => {
+  const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
+  for (const label of ["KITKAT system health preview", "Bounded cross-project connection preview"]) {
+    assert.match(html, new RegExp(`<section\\b[^>]*aria-label="${label}"`));
+  }
+});
+
+test("preserves all 38 decorative waveform bars and their heights", async () => {
+  const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
+  const waveform = html.match(/<div class="capture-wave" aria-hidden="true">([\s\S]*?)<\/div>/);
+  assert.ok(waveform, "the decorative waveform is present");
+  const heights = [...waveform[1].matchAll(/style="height:([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(heights, Array.from({ length: 38 }, (_, index) => `${18 + ((index * 17) % 68)}%`));
+});

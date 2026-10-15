@@ -22,6 +22,11 @@ const healthRows = [
   { label: "THERMAL", value: "STANDARD", state: "QUIET", width: "50%" },
 ];
 
+const waveformBars = Array.from({ length: 38 }, (_, index) => ({
+  id: `wave-bar-${index}`,
+  height: `${18 + ((index * 17) % 68)}%`,
+}));
+
 function MiniSignal({ color = "cyan" }: { color?: "cyan" | "green" | "amber" }) {
   return (
     <span className={`mini-signal mini-signal--${color}`} aria-hidden="true">
@@ -97,7 +102,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-instrument reveal reveal-3" aria-label="KITKAT system health preview">
+        <section className="hero-instrument reveal reveal-3" aria-label="KITKAT system health preview">
           <div className="instrument-frame">
             <div className="instrument-head">
               <span>KITKAT / LIVE SIGNAL</span>
@@ -135,7 +140,7 @@ export default function Home() {
             </div>
           </div>
           <div className="instrument-shadow" aria-hidden="true" />
-        </div>
+        </section>
       </section>
 
       <div className="signal-rail" aria-hidden="true">
@@ -227,10 +232,10 @@ export default function Home() {
                   <span>MAIN DISPLAY / 3008 × 1692</span>
                 </div>
                 <div className="capture-wave" aria-hidden="true">
-                  {Array.from({ length: 38 }, (_, index) => (
+                  {waveformBars.map((bar) => (
                     <i
-                      key={index}
-                      style={{ height: `${18 + ((index * 17) % 68)}%` }}
+                      key={bar.id}
+                      style={{ height: bar.height }}
                     />
                   ))}
                 </div>
@@ -340,13 +345,13 @@ export default function Home() {
               <div><span>SIRIUS / CONNECTION INBOX</span><strong>2 PROPOSALS</strong></div>
               <small>NOTHING WRITES BEFORE REVIEW</small>
             </div>
-            <div className="connection-map" aria-label="Bounded cross-project connection preview">
+            <section className="connection-map" aria-label="Bounded cross-project connection preview">
               <div className="memory-node memory-node--seed"><small>SEED / PROJECT</small><strong>KITKAT MEMORY</strong><span>ACTIVE CONTEXT</span></div>
               <div className="memory-link memory-link--a" aria-hidden="true" />
               <div className="memory-node memory-node--drive"><small>DRIVE / MEDIA</small><strong>FESTIVAL PUTNIKA</strong><span>REFERENCE ONLY</span></div>
               <div className="memory-link memory-link--b" aria-hidden="true" />
               <div className="memory-node memory-node--project"><small>PROJECT / ENGINE</small><strong>SIRIUS</strong><span>SHARED METHOD</span></div>
-            </div>
+            </section>
             <div className="proposal-list">
               <div className="proposal-card">
                 <div><span>RELATED TO / 91%</span><strong>KITKAT MEMORY ↔ SIRIUS</strong><small>Shared reviewed-context contract</small></div>

@@ -19,12 +19,15 @@ npm run dev
 ```sh
 npm test
 npm run audit:security
+npm run lint
+npm run typecheck
 ```
 
 ## GitHub Pages
 
-The repository includes an Actions workflow that audits dependencies, tests the
-static export and deploys it whenever `main` is updated. The public URL is:
+The repository includes an Actions workflow that audits dependencies, runs the
+maintained Biome linter, tests the static export and deploys it whenever `main`
+is updated. The public URL is:
 
 <https://tomislavrupic.github.io/kitkat-mac-health/>
 
@@ -57,5 +60,7 @@ The page uses no database, authentication, analytics, or remote runtime data.
 Development and production now both use Next.js. The retired Cloudflare/Vinext
 and database starter files remain in `examples/legacy-cloudflare/` as inactive
 references, with no runtime dependencies installed for them. See
-[dependency security notes](SECURITY-DEPENDENCIES.md) for the audit and tooling
-compatibility boundary.
+[dependency security notes](SECURITY-DEPENDENCIES.md) for audit results and the
+maintained lint-toolchain migration. Biome is lint-only: it does not format or
+rewrite source, and does not start a background server. TypeScript independently
+checks types through `npm run typecheck` and the production build.

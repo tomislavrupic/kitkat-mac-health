@@ -31,18 +31,41 @@ no undiscovered security defects. Re-run the audit before future publication.
 
 - Static-export tests cover product content, current release links, exported
   media/stylesheets, navigation targets and exact signed-feed preservation.
-- The existing app page, stylesheet, media, release assets and signed updater
-  feed are unchanged by this remediation. The native installed app is unchanged.
+- The visual design, stylesheet, media, release assets and signed updater feed
+  are unchanged by this remediation. The native installed app is unchanged.
 - Reproduction: `npm ci`, `npm run audit:security`, `npm test`, `npm run lint`.
 
-## Lint compatibility boundary
+## Supported lint toolchain
 
-ESLint 9.39.5 is the final compatible 9.x release used here. npm marks this line
-as unsupported; the current React and JSX accessibility plugins do not declare
-ESLint 10 compatibility. It is development-only and has no reported advisory
-in this audit, but migration to a supported lint stack remains a maintenance
-follow-up. It does not run in the deployed static website. Do not bypass plugin
-peer requirements with `--force` to conceal this compatibility boundary.
+The initial remediation temporarily retained deprecated ESLint 9.39.5 because
+the React and JSX accessibility plugins did not declare ESLint 10 compatibility.
+That follow-up is now resolved: Biome 2.5.15 replaces ESLint and its entire
+plugin/config dependency chain, without forcing incompatible peer versions.
+
+Biome runs recommended JavaScript/TypeScript/React/accessibility checks with
+explicit error-level rules for unused/undeclared variables, explicit `any`,
+React list keys, hook placement, effect dependencies and image alternative text.
+Tests invoke the actual configured CLI against temporary source fixtures, prove
+each error is rejected by its intended rule, accept valid typed React code, and
+verify that lint does not rewrite input. A lockfile check prevents ESLint 9
+from returning. TypeScript checking remains independent; this is not a claim
+that Biome implements every historical ESLint rule identically.
+
+Formatting and import rewriting are disabled. Static artwork and retired
+examples remain outside source-lint scope, as before. `noImgElement` is disabled
+deliberately: this is a portable static site with ordinary local images, not an
+image-optimization server. Image alternative-text validation remains enforced.
+No linter daemon, watcher, Git hook or automatic maintenance task was added.
+
+The migration also fixes two labelled generic containers by making them named
+semantic sections and assigns stable IDs to the fixed decorative waveform.
+These preserve the visual layout, bar count and heights. CSS, media, native app
+release assets and the signed updater feed are unchanged.
+
+Reproduction: `npm ci`, `npm run audit:security`, `npm run lint`, `npm test`,
+`npm run typecheck`. A clean install no longer emits the ESLint deprecation.
+
+Reference: [Biome migration and rule compatibility](https://biomejs.dev/installation/migrate-eslint-prettier/).
 
 ## Advisory references
 
