@@ -11,7 +11,7 @@ const creativeApps = [
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetPath = (path: string) => `${basePath}${path}`;
-const version = "0.6.2";
+const version = "0.7.0";
 const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
 const downloadURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg`;
 const checksumURL = `${releaseRoot}/KITKAT-Mac-Health-${version}.dmg.sha256`;
@@ -73,7 +73,7 @@ export default function Home() {
             <span>UNDER CONTROL.</span>
           </h1>
           <p className="hero-lede reveal reveal-3">
-            KITKAT watches CPU, RAM, storage, and Codex usage, records desktop sessions with system audio,
+            KITKAT watches CPU, RAM, storage, and Codex usage, maps disk space on demand, records desktop sessions with system audio,
             and keeps selected creative memory connected without touching source files. Sirius can propose
             useful links across projects and drives; nothing becomes canonical until you approve it.
           </p>
@@ -448,6 +448,11 @@ export default function Home() {
           </div>
           <div className="cleanup-copy">
             <div className="cleanup-stat">
+              <span>STORAGE EXPLORER / ON DEMAND</span>
+              <strong>SEE WHAT TAKES SPACE</strong>
+              <p>Explore an interactive radial map, browse the largest files, and reveal them in Finder. You choose the folder and start the scan. No background indexing or automatic deletion.</p>
+            </div>
+            <div className="cleanup-stat">
               <span>SAFE CACHE</span>
               <strong>MOVE TO TRASH</strong>
               <p>Nothing is vaporized. Every approved cleanup creates an action record and a restoration route.</p>
@@ -498,16 +503,16 @@ export default function Home() {
       </section>
 
       <section className="quiet-section">
-        <div className="quiet-label">BACKGROUND MODE / MEASURED</div>
+        <div className="quiet-label">BACKGROUND MODE / USER CONTROLLED</div>
         <div className="quiet-metrics">
-          <div><strong>~0.03%</strong><span>SYSTEM-WIDE IDLE CPU</span></div>
-          <div><strong>~116 MB</strong><span>SETTLED MEMORY</span></div>
+          <div><strong>ON DEMAND</strong><span>DISK SPACE SCANS</span></div>
+          <div><strong>NO TIMER</strong><span>SIRIUS + VAULT SYNC</span></div>
           <div><strong>30 SEC</strong><span>ECO SAMPLE RATE</span></div>
-          <div><strong>77 / 77</strong><span>TESTS PASSING</span></div>
+          <div><strong>NATIVE</strong><span>MACOS APP</span></div>
         </div>
         <p>
           Detailed process inspection wakes only when you open the console. Sleep suspends monitoring.
-          KITKAT stays in the menu bar, where backstage technicians belong.
+          Storage scans and Sirius imports run only when requested. KITKAT stays in the menu bar, where backstage technicians belong.
         </p>
       </section>
 

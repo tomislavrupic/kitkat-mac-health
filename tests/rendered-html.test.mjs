@@ -33,7 +33,7 @@ test("server-renders the finished KITKAT product page", async () => {
   assert.match(html, />CLEAN</i);
   assert.match(html, />WITHOUT</i);
   assert.match(html, />REGRET\.</i);
-  assert.match(html, /releases\/download\/v0\.6\.2\/KITKAT-Mac-Health-0\.6\.2\.dmg/);
+  assert.match(html, /releases\/download\/v0\.7\.0\/KITKAT-Mac-Health-0\.7\.0\.dmg/);
   assert.match(html, /Codex usage/i);
   assert.match(html, /Sirius/i);
   assert.match(html, /encrypted sync/i);
@@ -42,7 +42,9 @@ test("server-renders the finished KITKAT product page", async () => {
   assert.match(html, /RECORD THE WORK\./);
   assert.match(html, /SYSTEM AUDIO ARMED/);
   assert.match(html, /MOVIES \/ KITKAT RECORDINGS/);
-  assert.match(html, /77 \/ 77/);
+  assert.match(html, /STORAGE EXPLORER \/ ON DEMAND/);
+  assert.match(html, /interactive radial map/);
+  assert.match(html, /SIRIUS \+ VAULT SYNC/);
   assert.match(html, /MAX 24 CANDIDATES/);
   assert.match(html, /SERIOUS TOOLS\./);
   assert.match(html, /DEEPLY UNSERIOUS CAT\./);

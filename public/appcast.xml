@@ -4,25 +4,27 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>KITKAT Mac Health</title>
         <item>
-            <title>0.6.2</title>
-            <pubDate>Sat, 29 Aug 2026 19:34:12 +0200</pubDate>
+            <title>0.7.0</title>
+            <pubDate>Thu, 15 Oct 2026 20:22:34 +0200</pubDate>
             <link>https://tomislavrupic.github.io/kitkat-mac-health/</link>
-            <sparkle:version>10</sparkle:version>
-            <sparkle:shortVersionString>0.6.2</sparkle:shortVersionString>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>0.7.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="markdown"><![CDATA[# KITKAT 0.6.2
+            <description sparkle:format="markdown"><![CDATA[# KITKAT 0.7.0
 
 - Developer ID signed and Apple notarized.
-- Compact in-app update indicator in the menu-bar panel.
-- Secure automatic update checks with signed Sparkle feeds and archives.
+- Native PIX-7 storage explorer with interactive rings, largest files, folder navigation and Finder reveal.
+- Explicit, cancellable metadata scans with coverage warnings; no background disk indexing or automatic cleanup.
+- Sirius imports and vault synchronization are user-driven, without periodic polling.
+- Includes account recovery, capture and local document-conversion reliability improvements.
 
-Build 10 · macOS 15 or later · Apple silicon
+Build 13 · macOS 15 or later · Apple silicon
 ]]></description>
-            <enclosure url="https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v0.6.2/KITKAT-Mac-Health-0.6.2.dmg" length="6741925" type="application/octet-stream" sparkle:edSignature="biYaU6HDWt0ylGtC0zw6l7qrYBB6mMAmCNGScbiiBbtBqoNhWlO9UeBw9Y2YXyaP36Ck6LzRnYM3x3Rmktu3Bw=="></enclosure>
+            <enclosure url="https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v0.7.0/KITKAT-Mac-Health-0.7.0.dmg" length="94729134" type="application/octet-stream" sparkle:edSignature="jUCQeg6Cuppn6Vk7UUmlpKqPJ6iCfCX6GPOYrLxZ6nt3GAyM1fkH6FeQ4WRBM804OXQA5Vm/FYAoZ8omrOF9Bw=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: m74I2JnCtKLCZqfh5Hi2mTk51QudmZE618k3snxGh8Yh0t4Qsbr4eNKR9d7vQMTrpE5ICGO4Sx4oVd4NsbR7Bg==
-length: 1544
+edSignature: wQ/ojvtyLGuQw7lXvDGT89KOVLu0ZFYONbk7NrPUWnoO864cL+YkRY1VZJ4znpYxPQhFgPKypvl9yHnD86ciAw==
+length: 1815
 -->

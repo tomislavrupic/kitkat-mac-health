@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const buildRoot = join(projectRoot, "out");
 const outputRoot = resolve(projectRoot, "..", "KITKAT-Landing-Page-Portable");
-const version = "0.6.2";
+const { version } = JSON.parse(readFileSync(join(projectRoot, "package.json"), "utf8"));
 const releaseRoot = `https://github.com/tomislavrupic/kitkat-mac-health/releases/download/v${version}`;
 const releaseAssets = resolve(projectRoot, "..", "dist", "release");
 
