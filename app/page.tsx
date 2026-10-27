@@ -552,7 +552,7 @@ export default function Home() {
         </div>
         <p>BUILT FOR CREATIVE MACS / PIX-7 DESIGN SYSTEM</p>
         <p>LOCAL BUILD / MACOS 15+ / ARM64</p>
-      </footer>
+      <a className="pixel-records-home-link" href="https://tomislav-rupic.com/" style={{ display: "inline-flex", alignItems: "center", minHeight: 44, padding: "8px 12px", color: "inherit", textDecoration: "underline", textUnderlineOffset: 3, font: "inherit" }}>← tomislav-rupic.com</a></footer>
     </main>
   );
 }
